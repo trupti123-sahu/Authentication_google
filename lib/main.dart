@@ -56,12 +56,6 @@ class _MyAppState extends State<MyApp> {
     return null;
   }
 
-  Future<void> signOutGoogle() async {
-    await googleSignIn.signOut();
-
-    print("User Signed Out");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
