@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'FirstScreen.dart';
+import 'Drawer.dart';
+import 'Register.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,9 @@ void main() async {
 String name, email, photoUrl;
 
 class MyApp extends StatefulWidget {
+  final User user;
+
+  const MyApp({Key key, this.user}) : super(key: key);
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -64,7 +68,7 @@ class _MyAppState extends State<MyApp> {
           ClipPath(
             clipper: MyClipPath(),
             child: Container(
-              height: 320,
+              height: 250,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
@@ -150,13 +154,31 @@ class _MyAppState extends State<MyApp> {
                 disabledTextColor: Colors.white,
                 disabledColor: Colors.red,
                 child: Text(
-                  "Log in",
+                  "sign in",
                 ),
                 onPressed: () {}
                 // onPressed: () => signInWithGoogle()
                 //     .then((UserCredential user) => print(user))
                 //     .catchError((e) => print(e)),
                 ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                disabledTextColor: Colors.white,
+                disabledColor: Colors.red,
+                child: Text(
+                  "Register",
+                ),
+                onPressed: () {
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(builder: (context) {
+                  //     return Register();
+                  //   }),
+                  // );
+                }),
           ),
           SizedBox(
             height: 10,
@@ -222,9 +244,9 @@ class MyClipPath extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = new Path();
-    path.lineTo(0, size.height * 0.85); //vertical line
+    path.lineTo(0, size.height * 0.78); //vertical line
     path.cubicTo(size.width / 3, size.height, 2 * size.width / 3,
-        size.height * 0.7, size.width, size.height * 0.85); //cubic curve
+        size.height * 0.6, size.width, size.height * 0.78); //cubic curve
     path.lineTo(size.width, 0);
     return path;
   }
