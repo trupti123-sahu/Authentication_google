@@ -3,6 +3,8 @@ import 'package:flutter_practice/main.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'homePage.dart';
+
 class FirstScreen extends StatelessWidget {
   //final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -20,10 +22,15 @@ class FirstScreen extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           children: [
-            DrawerHeader(
-              child: Text("Header"),
-              decoration: BoxDecoration(
-                color: Colors.blue,
+            UserAccountsDrawerHeader(
+              accountName: Text("Truptimayee Sahu"),
+              accountEmail: Text("sahu.trupti2020@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Text(
+                  "T",
+                  style: TextStyle(fontSize: 40.0),
+                ),
               ),
             ),
             ListTile(
@@ -45,23 +52,24 @@ class FirstScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.mail),
-            label: "Messages",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          )
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: 0,
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       icon: new Icon(Icons.home),
+      //       label: "Home",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: new Icon(Icons.mail),
+      //       label: "Messages",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person),
+      //       label: "Profile",
+      //     )
+      //   ],
+      // ),
+      body: homePage(),
     );
   }
 }

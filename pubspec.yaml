@@ -31,6 +31,9 @@ dependencies:
   firebase_auth:
   google_sign_in:
   firebase_core:
+  google_fonts:
+  smooth_star_rating:
+  intro_slider:
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +55,15 @@ flutter:
     - assets/images/fb.png
     - assets/images/google.png
     - assets/images/pic.png
+    - assets/images/hamburger.png
+    - assets/images/fries.png
+    - assets/images/Donut_Emoji.png
+    - assets/images/pizza.png
+    - assets/images/hotdog.png
+    - assets/images/popcorn.png
+    - assets/images/Taco.jpg
+    - assets/images/cheese.png
+    - assets/images/sandwich.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
